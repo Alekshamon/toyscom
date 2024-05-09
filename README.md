@@ -34,17 +34,18 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/toyscom?serverVersion=5
 
 Update the `$api_key` and `$api_key_secret` variables to match your Mailjet API Key in `/src/Classe/Mail.php`.
 
+#### Run
+
+Run the command below and then open http://localhost:8000/ in your browser:
+
+`symfony server:start`
+
 #### Install Dependencies (backend)
 
 ```bash
 composer install
 symfony console doctrine:migrations:migrate
 
-#### Run
-
-Run the command below and then open http://localhost:8000/ in your browser:
-
-`symfony server:start``
 
 
 

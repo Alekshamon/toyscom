@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+	<div class="container my-5">
+		<h1>Mon Profil</h1>
+
+		<h3>Bonjour
+			<strong class="text-primary">{{ app.user.firstname }}</strong>
+		</h3>
+		<h4>Bienvenu dans votre espace personnel</h4>
+
+
+		<div class="row">
+			<div class="col-md-3">
+				{% include 'account/_menu.html.twig'%}
+			</div>
+			<div class="col-md-9">
+				<h5>Mes commandes</h5>
+				<table class="table">
+					<thead>
+						<tr>
+							<th scope="col">#</th>
+							<th scope="col">First</th>
+							<th scope="col">Last</th>
+							<th scope="col">Handle</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Mark</td>
+							<td>Otto</td>
+							<td>@mdo</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Jacob</td>
+							<td>Thornton</td>
+							<td>@fat</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td colspan="2">Larry the Bird</td>
+							<td>@twitter</td>
+						</tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-4">
+				<div class="account-item text-center">
+					<a href="{{ path('app_account_modify_pwd') }} ">Modifier mot de passe</a>
+					<a href="{{ path('app_logout') }}">Se déconnecter</a>
+
+
+				</div>
+			</div>
+
+
+		</div>
+	{% endblock %}

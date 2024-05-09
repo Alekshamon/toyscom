@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>TOYSCOM - 100% Made in France</title>
-		<meta name="description" content="La boutique de Made In France">
+		<meta name="description" content="TOYS">
 
 		<link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}">
 
@@ -21,7 +21,7 @@
 		<header data-bs-theme="dark">
 			<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="{{ path('app_home') }}">La Boutique Française</a>
+					<a class="navbar-brand" href="{{ path('app_home') }}">TOYS</a>
 
 					<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
 						<span class="navbar-toggler-icon"></span>
@@ -33,65 +33,61 @@
 
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
+								<a class="nav-link" href="#">Nos produits</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
+								<a class="nav-link" href="#">A propos</a>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Link</a>
+								<a class="nav-link" href="#">Contact</a>
 							</li>
 						</ul>
-						<div
-							class="speed-menu">{# {% if app.user %}
-																/* <a href="{{ path('app_account')}}">
-																	<i data-feather="user"></i>
-																	{{ app.user.firstname }}
-																</a>
-															{% else %}
-																<a href="{{ path('app_login')}}">
-								
-																	<i data-feather="user"></i>
-																</a>
-								
-															{% endif %}
-								
-															<a href="">
-																<i data-feather="shopping-cart"></i>
-															</a> #}
-						</div>
+						<div class="navbar-item-custom">
+							{% if app.user %}
+								<a href="{{ path('app_account') }}">
+									<i data-feather="user"></i>
+
+									<strong>
+										{{ app.user.firstname }}
+									</strong>
+								</a>
+								<a href="{{ path('app_logout') }}">Déconnection</a>
+							{% else %}
+								<a href="{{ path('app_login') }}">Connection</a>
+								|
+								<a href="{{ path('app_register') }}">Inscription</a>``
+							</div>
+						{% endif %}
+						{# <a href="{{ path('cart') }}">
+																																																							<img src="{{ asset('assets/img/shopping-cart.png') }}" class="cart-item" alt="My cart">
+																																																						</a> #}
 					</div>
+
 				</div>
-			</nav>
-		</header>
-
-		<main>
-			<div class="container">
-				{% for label, messages in app.flashes %}
-					{% for message in messages %}
-						<div class="alert mt-4 alert-{{ label }}">
-							{{ message }}
-						</div>
-					{% endfor %}
-				{% endfor %}
-
 			</div>
-
-			<!-- CONTENT -->
-
-			{%  block body %}{% endblock %}
-
-			<!-- FOOTER -->
-			<footer class="container">
-				<p>&copy; 2017–2024 TOYSCOM
-					<a href="#">CGV</a>
-					&middot;
-					<a href="#">CGU</a>
-				</p>
-			</footer>
-		</main>
-
-		<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
-		<script src="{{ asset('assets/js/global.js') }}"></script>
+		</nav>
 	</body>
-</html>
+</html></header><main>
+<div class="container">
+	{% for label, messages in app.flashes %}
+		{% for message in messages %}
+			<div class="alert mt-4 alert-{{ label }}">
+				{{ message }}
+			</div>
+		{% endfor %}
+	{% endfor %}
+
+</div>
+
+<!-- CONTENT -->
+
+{%  block body %}{% endblock %}
+
+<!-- FOOTER -->
+<footer class="container">
+	<p>&copy; 2017–2024 TOYSCOM
+		<a href="#">CGV</a>
+		&middot;
+		<a href="#">CGU</a>
+	</p>
+</footer></main><script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script><script src="{{ asset('assets/js/global.js') }}"></script></body></html></body></html></body></html>
