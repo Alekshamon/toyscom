@@ -30,7 +30,7 @@ class Product
     private ?float $price = null;
 
     #[ORM\Column]
-    private ?float $tva = null;
+    private ?string $tva = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
     private ?Category $category = null;
@@ -100,12 +100,19 @@ class Product
         return $this;
     }
 
-    public function getTva(): ?float
+    public function getPriceWt(): string
+    {
+
+        $coeff = 1 + ($this->tva / 100);
+        return $coeff * $this->price;
+    }
+
+    public function getTva(): ?string
     {
         return $this->tva;
     }
 
-    public function setTva(float $tva): static
+    public function setTva(string $tva): static
     {
         $this->tva = $tva;
 
