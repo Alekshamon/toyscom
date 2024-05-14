@@ -40,13 +40,18 @@
 							</li>
 
 						</ul>
-						<div class="navbar-item-custom">
+						<div class="speed-menu ">
+
 							{% if app.user %}
 								<a href="{{ path('app_account') }}">
 									<i data-feather="user"></i>
 									<strong>{{ app.user.firstname }}</strong>
 								</a>
-								<a href="{{ path('app_logout') }}">Déconnexion</a>
+								<a href="{{ path('app_cart') }}">
+									<i data-feather="shopping-cart"></i>
+									<span class="badge text-bg-light">{{ fullCartQuantity }}</span>
+
+								</a>
 							{% else %}
 								<a href="{{ path('app_login') }}">Connexion</a>
 								|

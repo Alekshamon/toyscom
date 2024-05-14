@@ -21,7 +21,7 @@
 
 			<span class=" product-subtitle">{{ product.description|raw }}</span>
 			<br/>
-			<button class="btn btn-success mt-3">Ajouter au panier</button>
+			<a href="{{ path('app_cart_add', { id : product.id }) }}" class="btn btn-success mt-3">Ajouter au panier</a>
 
 		</div>
 
