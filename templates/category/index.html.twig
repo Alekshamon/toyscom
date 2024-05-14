@@ -15,7 +15,8 @@
 
 					</a>
 					<p class="d-block">{{ (product.price / 100)|number_format(2, ',', '.') }}€</p>
-					<button class="btn btn-success mt-3">Ajouter au panier</button>
+					<a href="{{ path('app_cart_add', { id : product.id }) }}" class="btn btn-success mt-3">Ajouter au panier</a>
+
 
 				</div>
 

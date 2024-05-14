@@ -2,6 +2,7 @@
 
 namespace App\Twig;
 
+use App\Classe\Cart;
 use App\Repository\CategoryRepository;
 use Twig\Extension\AbstractExtension;
 
@@ -9,10 +10,12 @@ class AppExtensions extends \Twig\Extension\AbstractExtension implements \Twig\E
 {
 
     private $categoryRepository;
+    private $cart;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryRepository $categoryRepository, Cart $cart)
     {
         $this->categoryRepository = $categoryRepository;
+        $this->cart = $cart;
     }
 
     public function getFilters()
@@ -31,6 +34,7 @@ class AppExtensions extends \Twig\Extension\AbstractExtension implements \Twig\E
     {
         return [
             'AllCategories' => $this->categoryRepository->findAll(),
+            'fullCartQuantity' => $this->cart->fullQuantity()
         ];
     }
 }
