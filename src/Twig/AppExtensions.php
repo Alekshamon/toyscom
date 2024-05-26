@@ -5,6 +5,7 @@ namespace App\Twig;
 use App\Classe\Cart;
 use App\Repository\CategoryRepository;
 use Twig\Extension\AbstractExtension;
+use Twig\TwigFilter;
 
 class AppExtensions extends \Twig\Extension\AbstractExtension implements \Twig\Extension\GlobalsInterface
 {
@@ -21,7 +22,7 @@ class AppExtensions extends \Twig\Extension\AbstractExtension implements \Twig\E
     public function getFilters()
     {
         return [
-            new \Twig\TwigFilter('price', [$this, 'formatPrice']),
+            new TwigFilter('price', [$this, 'formatPrice']),
         ];
     }
 
@@ -30,11 +31,13 @@ class AppExtensions extends \Twig\Extension\AbstractExtension implements \Twig\E
         return number_format($number, 2, ',', ' ') . ' €';
     }
 
+
     public function getGlobals(): array
     {
         return [
             'AllCategories' => $this->categoryRepository->findAll(),
-            'fullCartQuantity' => $this->cart->fullQuantity()
+            'fullCartQuantity' => $this->cart->fullQuantity(),
+            'cartTotal' => $this->cart->getTotal(),
         ];
     }
 }

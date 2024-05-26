@@ -7,7 +7,6 @@ use App\Form\AddressUserType;
 use App\Form\PasswordUserType;
 use App\Repository\AddressRepository;
 use Doctrine\ORM\EntityManagerInterface;
-use Doctrine\ORM\Mapping\Entity;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

@@ -86,14 +86,12 @@ class Cart
      */
     public function getTotal()
     {
-        $cart = $this->requestStack->getSession()->get('cart');
+        $cart = $this->requestStack->getSession()->get('cart', []);
         $totalPrice = 0;
-        if ($cart) {
-            foreach ($cart as $product) {
-                $totalPrice += $product['object']->getPrice() * $product['qty'];
-            }
+        foreach ($cart as $product) {
+            $totalPrice += $product['object']->getPrice() * $product['qty'];
         }
-        return $totalPrice;
+        return number_format($totalPrice, 2, '.', '');
     }
 
     /*
